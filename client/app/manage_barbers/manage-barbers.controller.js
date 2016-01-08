@@ -5,26 +5,26 @@
 
 angular.module('myNewProejctApp')
   .controller('ManageBarbersCtrl', function ($scope, $http, socket) {
-    $scope.awesomeThings = [];
+    $scope.barbers = [];
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('thing', $scope.awesomeThings);
+    $http.get('/api/barbers').success(function(barbers) {
+      $scope.barbers = barbers;
+      socket.syncUpdates('barber', $scope.barbers);
     });
 
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
+    $scope.addBarber = function() {
+      if($scope.newBarber === '') {
         return;
       }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
+      $http.post('/api/barbers', { name: $scope.newBarber });
+      $scope.newBarber = '';
     };
 
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
+    $scope.deleteBarber = function(barber) {
+      $http.delete('/api/barber/' + barber._id);
     };
 
     $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('thing');
+      socket.unsyncUpdates('barber');
     });
   });
