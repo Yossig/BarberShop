@@ -7,6 +7,7 @@ angular.module('myNewProejctApp')
   .controller('profileCtrl', function ($scope, $http, socket, barber) {
     $scope.barber = barber.data;
     $scope.editMode = false;
+    $scope.barberStatus = ['Active','Inactive'];
 
     $scope.editBarber = function () {
       $scope.newEdit = angular.copy($scope.barber);

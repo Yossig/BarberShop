@@ -34,11 +34,11 @@ Barber.find({}).remove(function () {
   Barber.create({
       fullname: 'Aviram',
       abilities: ['basic', 'shity'],
-      active: true
+      status: 'Active'
     },
     {
       fullname: 'Doroti',
       abilities: ['basic', 'shity'],
-      active: true
+      status: 'Inactive'
     })
 });

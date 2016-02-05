@@ -9,7 +9,7 @@ var Schema = mongoose.Schema;
 var barberSchema = new Schema({
   fullname: String,
   abilities: [String],
-  active: Boolean
+  status: String
 });
 
 module.exports =  mongoose.model('Barber',barberSchema)

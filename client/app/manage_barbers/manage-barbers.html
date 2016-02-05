@@ -7,7 +7,7 @@
         <thead>
         <th class="col-md-2">Full Name</th>
         <th class="col-md-2">Abilities</th>
-        <th class="col-md-2">Active</th>
+        <th class="col-md-2">Status</th>
         </thead>
         <tbody>
         <tr ng-repeat="barber in barbers">
@@ -19,7 +19,7 @@
           <td class="col-md-2">
             <span class="label label-info" ng-repeat="ability in barber.abilities">{{ability}}</span>
           </td>
-          <td>{{barber.active}}</td>
+          <td>{{barber.status}}</td>
           <td class="col-md-2">
             <button type="submit" data-ng-show="editMode" type="button" ng-click="editMode = false; cancelEdit(barber)">Cancel</button>
             <a href="Manage/Profile/{{barber._id}}">Show Profile</a>
