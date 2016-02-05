@@ -32,8 +32,13 @@ Thing.find({}).remove(function () {
 
 Barber.find({}).remove(function () {
   Barber.create({
-    fullname: 'Aviram',
-    abillities: ['basic', 'shity'],
-    active: true
-  })
+      fullname: 'Aviram',
+      abilities: ['basic', 'shity'],
+      active: true
+    },
+    {
+      fullname: 'Doroti',
+      abilities: ['basic', 'shity'],
+      active: true
+    })
 });

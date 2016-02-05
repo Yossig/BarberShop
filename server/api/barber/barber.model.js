@@ -8,7 +8,7 @@ var Schema = mongoose.Schema;
 
 var barberSchema = new Schema({
   fullname: String,
-  abillities: [String],
+  abilities: [String],
   active: Boolean
 });
 
