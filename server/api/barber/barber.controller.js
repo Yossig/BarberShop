@@ -46,8 +46,8 @@ exports.update = function(req, res) {
   Barber.findById(req.params.id, function (err, barber) {
     if (err) { return handleError(res, err); }
     if(!barber) { return res.send(404); }
-    var updated = _.merge(barber, req.body);
-    updated.save(function (err) {
+    _.extend(barber, req.body);
+    barber.save(function (err) {
       if (err) { return handleError(res, err); }
       return res.json(200, barber);
     });

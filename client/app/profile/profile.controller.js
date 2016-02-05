@@ -23,4 +23,8 @@ angular.module('myNewProejctApp')
       $scope.editMode = false;
       $http.put('/api/barbers/' + $scope.barber._id, $scope.barber);
     };
+
+    $scope.removeAbility = function (index) {
+      $scope.barber.abilities.splice(index,1);
+    }
   });

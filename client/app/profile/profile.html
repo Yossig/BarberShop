@@ -14,7 +14,9 @@
     </div>
     <div class="form-group">
       <label class="col-md-2">Abilities:</label>
-      <label>{{barber.abilities}}</label>
+      <ul class="nav nav-pills nav-stacked col-sm-1" ng-repeat="ability in barber.abilities">
+        <li><a href="#">{{ability}}<button data-ng-show="editMode" type="button" class="close" ng-click="removeAbility($index)">&times;</button></a></li>
+      </ul>
     </div>
     <div class="form-group">
       <label class="col-md-2">Status:</label>
