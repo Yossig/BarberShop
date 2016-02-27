@@ -4,7 +4,7 @@
 'use strict';
 
 angular.module('myNewProejctApp')
-  .controller('ManageBarbersCtrl', function ($scope, $http, socket) {
+  .controller('ManageBarbersCtrl', function ($scope, $http, socket, $uibModal) {
     $scope.barbers = [];
 
     $http.get('/api/barbers').success(function (barbers) {
@@ -27,5 +27,19 @@ angular.module('myNewProejctApp')
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('barber');
     });
+
+    $scope.openProfile = function (size, id) {
+      $uibModal.open({
+        animation: true,
+        templateUrl: '/app/profile/profile.html',
+        controller: 'profileCtrl',
+        size: size,
+        resolve: {
+          barber: function ($http) {
+            return $http.get('api/barbers/' + id);
+          }
+        }
+      })
+    }
 
   });

@@ -1,32 +1,61 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
-<div class="container">
-  <h3>{{barber.fullname}}</h3>
-  <hr>
-  <form class="form-horizontal">
-    <div class="form-group">
-      <label class="col-md-2">Full Name:</label>
+<div class="">
+  <div class="modal-header">
+    <h3 class="modal-title col-md-11">{{barber.fullname}}</h3>
+    <button type="button" class="btn btn-default" ng-click="close()">
+      <span class="glyphicon glyphicon-remove"></span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal">
 
-      <div class="col-md-2">
-        <label data-ng-hide="editMode">{{barber.fullname}}</label>
-        <input class="form-control" type="text" data-ng-show="editMode"
-               data-ng-model="barber.fullname" data-ng-required/>
+      <div class="form-group">
+        <label class="col-md-2">Full Name:</label>
+
+        <div class="col-md-10">
+          <label data-ng-hide="editMode">{{barber.fullname}}</label>
+          <input class="form-control" type="text" data-ng-show="editMode"
+                 data-ng-model="barber.fullname" data-ng-required/>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-2">Abilities:</label>
-      <ul class="nav nav-pills nav-stacked col-sm-1" ng-repeat="ability in barber.abilities">
-        <li><a href="#">{{ability}}<button data-ng-show="editMode" type="button" class="close" ng-click="removeAbility($index)">&times;</button></a></li>
-      </ul>
-    </div>
-    <div class="form-group">
-      <label class="col-md-2">Status:</label>
-      <label data-ng-hide="editMode">{{barber.status}}</label>
-      <select data-ng-show="editMode" ng-options="status for status in barberStatus"
-              ng-model="barber.status"></select>
-    </div>
-    <hr>
-    <button type="button" data-ng-hide="editMode" class="btn btn-default" ng-click="editBarber()">Edit</button>
-    <button type="button" data-ng-show="editMode" class="btn btn-default" ng-click="saveEdit()">Save</button>
-    <button type="button" data-ng-show="editMode" class="btn btn-default" ng-click="cancelEdit()">Cancel</button>
-  </form>
+
+      <div class="form-group">
+        <label class="col-md-2">Abilities:</label>
+
+        <div class="col-md-10">
+          <ul class="nav nav-pills nav-stacked col-sm-2" ng-repeat="ability in barber.abilities">
+            <li><a href="#">{{ability}}
+              <button data-ng-show="editMode" type="button" class="close"
+                      ng-click="removeAbility($index)">&times;</button>
+            </a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="form-group" data-ng-show="editMode">
+        <div class="col-md-offset-2 col-lg-3">
+          <div class="input-group">
+            <input type="text" class="form-control" ng-model="newAbility" placeholder="New Ability...">
+            <span class="input-group-btn">
+               <button class="btn btn-default" type="button" ng-click="addAbility(newAbility)">Add</button>
+           </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-2">Status:</label>
+        <div class="col-md-2">
+          <label data-ng-hide="editMode">{{barber.status}}</label>
+          <select class="form-control" data-ng-show="editMode" ng-options="status for status in barberStatus"
+                  ng-model="barber.status"></select>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" data-ng-hide="editMode" class="btn btn-default" ng-click="editBarber()">Edit</button>
+        <button type="button" data-ng-show="editMode" class="btn btn-default" ng-click="saveEdit()">Save</button>
+        <button type="button" data-ng-show="editMode" class="btn btn-default" ng-click="cancelEdit()">Cancel</button>
+      </div>
+    </form>
+  </div>
 </div>

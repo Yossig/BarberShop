@@ -4,10 +4,10 @@
 'use strict'
 
 angular.module('myNewProejctApp')
-  .controller('profileCtrl', function ($scope, $http, socket, barber) {
+  .controller('profileCtrl', function ($scope, $http, socket, barber, $uibModalInstance) {
     $scope.barber = barber.data;
     $scope.editMode = false;
-    $scope.barberStatus = ['Active','Inactive'];
+    $scope.barberStatus = ['Active', 'Inactive'];
 
     $scope.editBarber = function () {
       $scope.newEdit = angular.copy($scope.barber);
@@ -25,6 +25,14 @@ angular.module('myNewProejctApp')
     };
 
     $scope.removeAbility = function (index) {
-      $scope.barber.abilities.splice(index,1);
+      $scope.barber.abilities.splice(index, 1);
+    }
+
+    $scope.addAbility = function (ability) {
+      $scope.barber.abilities.push(ability);
+    }
+
+    $scope.close = function() {
+      $uibModalInstance.dismiss('close');
     }
   });
