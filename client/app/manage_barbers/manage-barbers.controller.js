@@ -28,16 +28,27 @@ angular.module('myNewProejctApp')
       socket.unsyncUpdates('barber');
     });
 
-    $scope.openProfile = function (size, id) {
+    $scope.openProfile = function(size,id) {
       $uibModal.open({
         animation: true,
         templateUrl: '/app/profile/profile.html',
         controller: 'profileCtrl',
         size: size,
         resolve: {
-          barber: function ($http) {
-            return $http.get('api/barbers/' + id);
+          barber: function($http) {
+            return $http.get('api/barbers/'+ id);
           }
+        }
+      })
+    }
+
+    $scope.newBarber = function(size) {
+      $uibModal.open({
+        animation: true,
+        templateUrl: '/app/new_barber/new-barber.html',
+        controller: 'newBarberCtrl',
+        size: size,
+        resolve: {
         }
       })
     }
