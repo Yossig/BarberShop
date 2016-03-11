@@ -28,28 +28,40 @@ angular.module('myNewProejctApp')
       socket.unsyncUpdates('barber');
     });
 
-    $scope.openProfile = function(size,id) {
+    $scope.openWarningDelete = function (barber) {
+      var modalInstance = $uibModal.open({
+        animation: true,
+        templateUrl: '/app/modals/delete-modal.html',
+        controller: 'deleteModalCtrl',
+        windowClass: 'modal-danger',
+        resolve: {}
+      })
+
+      modalInstance.result.then(function(result) {
+        if(result === true) {
+          $scope.deleteBarber(barber);
+        }
+      })
+    }
+    $scope.openProfile = function (id) {
       $uibModal.open({
         animation: true,
         templateUrl: '/app/profile/profile.html',
         controller: 'profileCtrl',
-        size: size,
         resolve: {
-          barber: function($http) {
-            return $http.get('api/barbers/'+ id);
+          barber: function ($http) {
+            return $http.get('api/barbers/' + id);
           }
         }
       })
     }
 
-    $scope.newBarber = function(size) {
+    $scope.newBarber = function () {
       $uibModal.open({
         animation: true,
         templateUrl: '/app/new_barber/new-barber.html',
         controller: 'newBarberCtrl',
-        size: size,
-        resolve: {
-        }
+        resolve: {}
       })
     }
 

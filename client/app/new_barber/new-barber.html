@@ -1,26 +1,26 @@
 <div class="modal-header">
-  <h3 class="modal-title col-md-11">{{barber.fullname}}</h3>
+  <h3 class="modal-title col-md-11">Add New Barber</h3>
   <button type="button" class="btn btn-danger" ng-click="close()">
     <span class="glyphicon glyphicon-remove"></span>
   </button>
 </div>
 <div class="modal-body">
-  <form class="form-horizontal">
+  <form class="form-horizontal" name="form">
 
     <div class="form-group">
-      <label class="col-md-2">Full Name:</label>
+      <label class="col-md-3">Full Name:</label>
 
-      <div class="col-md-10">
-        <input class="form-control" type="text" placeholder="..."
-               data-ng-model="barber.fullname" data-ng-required/>
+      <div class="col-md-4">
+        <input class="form-control" type="text" placeholder="Enter a name"
+               data-ng-model="barber.fullname" name="fullname" maxlength="16" data-ng-required="true"/>
       </div>
     </div>
 
     <div class="form-group">
-      <label class="col-md-2">Abilities:</label>
+      <label class="col-md-3">Abilities:</label>
 
-      <div class="col-md-10">
-        <ul class="nav nav-pills nav-stacked col-sm-2" ng-repeat="ability in barber.abilities">
+      <div class="col-md-9">
+        <ul class="nav nav-pills nav-stacked col-sm-4" ng-repeat="ability in barber.abilities">
           <li><a href="#">{{ability}}
             <button type="button" class="close"
                     ng-click="removeAbility($index)">&times;</button>
@@ -30,30 +30,33 @@
     </div>
 
     <div class="form-group">
-      <div class="col-md-offset-2 col-lg-3">
+      <div class="col-md-offset-3 col-lg-4">
         <div class="input-group">
-          <input type="text" class="form-control" ng-model="newAbility" placeholder="New Ability...">
+          <input type="text" class="form-control" name="ability" data-ng-required="true" maxlength="6"
+                 ng-model="newAbility" placeholder="New Ability...">
             <span class="input-group-btn">
-               <button class="btn btn-default" type="button" ng-click="addAbility(newAbility)">Add</button>
+               <button class="btn btn-default" type="button" ng-click="addAbility()" ng-disabled="!form.ability.$valid">
+                 Add
+               </button>
            </span>
         </div>
       </div>
     </div>
 
     <div class="form-group">
-      <label class="col-md-2">Status:</label>
+      <label class="col-md-3">Status:</label>
 
-      <div class="col-md-2">
+      <div class="col-md-4">
         <select class="form-control" ng-options="status for status in barberStatus"
                 ng-model="barber.status"></select>
       </div>
     </div>
-
-    <div class="modal-footer">
-      <button type="button" class="btn btn-success" ng-click="createBarber()">
-        <span class="glyphicon glyphicon-ok"></span>
-      </button>
-    </div>
   </form>
 </div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-success" ng-click="createBarber()" ng-disabled="!form.fullname.$valid">
+    <span class="glyphicon glyphicon-ok"></span>
+  </button>
+</div>
+
 

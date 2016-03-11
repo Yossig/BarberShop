@@ -20,8 +20,9 @@ angular.module('myNewProejctApp')
       $scope.barber.abilities.splice(index, 1);
     }
 
-    $scope.addAbility = function (ability) {
-      $scope.barber.abilities.push(ability);
+    $scope.addAbility = function () {
+      $scope.barber.abilities.push($scope.newAbility);
+      $scope.newAbility = '';
     }
 
     $scope.close = function() {

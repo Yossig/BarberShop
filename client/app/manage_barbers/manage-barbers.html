@@ -5,7 +5,7 @@
       <h1 class="page-header">
         <div class="col-md-11">Barbers</div>
         <div>
-          <button type="button" class="btn btn-success" ng-click="newBarber('lg')">
+          <button type="button" class="btn btn-success" ng-click="newBarber()">
             <span class="glyphicon glyphicon-plus"></span>
           </button>
         </div>
@@ -34,10 +34,10 @@
             <button type="submit" data-ng-show="editMode" type="button" ng-click="editMode = false; cancelEdit(barber)">
               Cancel
             </button>
-            <button type="button" class="btn btn-info" ng-click="openProfile('lg',barber._id)">
+            <button type="button" class="btn btn-info" ng-click="openProfile(barber._id)">
               <span class="glyphicon glyphicon-user"></span>
             </button>
-            <button type="button" class="btn btn-warning" ng-click="deleteBarber(barber)">
+            <button type="button" class="btn btn-warning" ng-click="openWarningDelete(barber)">
               <span class="glyphicon glyphicon-minus"></span>
             </button>
           </td>
