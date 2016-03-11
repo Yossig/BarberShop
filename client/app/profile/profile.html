@@ -50,17 +50,16 @@
                 ng-model="barber.status"></select>
       </div>
     </div>
-
-    <div class="modal-footer">
-      <button type="button" data-ng-hide="editMode" class="btn btn-info" ng-click="editBarber()">
-        <span class="glyphicon glyphicon-pencil"></span>
-      </button>
-      <button type="button" data-ng-show="editMode" class="btn btn-success" ng-click="saveEdit()"  ng-disabled="!form.fullname.$valid">
-        <span class="glyphicon glyphicon-ok"></span>
-      </button>
-      <button type="button" data-ng-show="editMode" class="btn btn-warning" ng-click="cancelEdit()">
-        <span class="glyphicon glyphicon-remove"></span>
-      </button>
-    </div>
   </form>
+</div>
+<div class="modal-footer">
+  <button type="button" data-ng-hide="editMode" class="btn btn-info" ng-click="editBarber()">
+    <span class="glyphicon glyphicon-pencil"></span>
+  </button>
+  <button type="button" data-ng-show="editMode" class="btn btn-success" ng-click="saveEdit()"  ng-disabled="!form.fullname.$valid">
+    <span class="glyphicon glyphicon-ok"></span>
+  </button>
+  <button type="button" data-ng-show="editMode" class="btn btn-warning" ng-click="cancelEdit()">
+    <span class="glyphicon glyphicon-share-alt"></span>
+  </button>
 </div>
