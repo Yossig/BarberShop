@@ -9,6 +9,9 @@ angular.module('myNewProejctApp')
       }, {
         'title': 'Manage Barbers',
         'link': '/Manage'
+      }, {
+        'title': 'Schedule',
+        'link': '/Schedule'
       }
     ];
 

@@ -31,7 +31,7 @@ angular.module('myNewProejctApp')
     $scope.openWarningDelete = function (barber) {
       var modalInstance = $uibModal.open({
         animation: true,
-        templateUrl: '/app/modals/delete-modal.html',
+        templateUrl: '/app/modals/delete_warning/delete-modal.html',
         controller: 'deleteModalCtrl',
         windowClass: 'modal-danger',
         resolve: {}
@@ -46,7 +46,7 @@ angular.module('myNewProejctApp')
     $scope.openProfile = function (id) {
       $uibModal.open({
         animation: true,
-        templateUrl: '/app/profile/profile.html',
+        templateUrl: '/app/modals/profile/profile.html',
         controller: 'profileCtrl',
         resolve: {
           barber: function ($http) {
@@ -59,7 +59,7 @@ angular.module('myNewProejctApp')
     $scope.newBarber = function () {
       $uibModal.open({
         animation: true,
-        templateUrl: '/app/new_barber/new-barber.html',
+        templateUrl: '/app/modals/new_barber/new-barber.html',
         controller: 'newBarberCtrl',
         resolve: {}
       })
