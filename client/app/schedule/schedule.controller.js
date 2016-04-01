@@ -3,11 +3,11 @@
 angular.module('myNewProejctApp')
   .controller('ScheduleCtrl', function ($scope, $compile, uiCalendarConfig) {
     $scope.events=[];
-    
+
     $scope.uiConfig = {
       calendar:{
-        height: 700,
-        editable: true,
+        height: 300,
+        editable: false,
         header:{
           left: 'month agendaWeek agendaDay',
           center: 'title',
